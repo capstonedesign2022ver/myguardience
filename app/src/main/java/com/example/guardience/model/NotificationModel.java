@@ -1,9 +1,5 @@
 package com.example.guardience.model;
 
-import android.app.Notification;
-
-import java.util.Date;
-
 public class NotificationModel {
     public String dest;
     public Notification notification = new Notification();

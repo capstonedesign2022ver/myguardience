@@ -16,7 +16,7 @@
             android:layout_width="100dp"
             android:layout_height="1dp"
             android:layout_weight="1"
-            android:background="@color/main_color"
+            android:background="@android:color/darker_gray"
             android:visibility="visible">
         </View>
         <TextView
@@ -25,12 +25,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="2022-11-30"/>
+            android:text="1999-01-01"/>
         <View
             android:layout_width="100dp"
             android:layout_height="1dp"
             android:layout_weight="1"
-            android:background="@color/main_color"
+            android:background="@android:color/darker_gray"
             android:visibility="visible">
         </View>
     </LinearLayout>

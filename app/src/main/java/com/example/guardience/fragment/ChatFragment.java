@@ -30,6 +30,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.example.guardience.func.Util9;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -62,7 +63,7 @@ import java.util.TreeMap;
 
 import com.example.guardience.R;
 import com.example.guardience.chat.ChatActivity;
-//import com.example.guardience.common.Util9;
+import com.example.guardience.func.Util9;
 import com.example.guardience.model.ChatModel;
 import com.example.guardience.model.ChatRoomModel;
 import com.example.guardience.model.NotificationModel;
@@ -132,7 +133,7 @@ public class ChatFragment extends Fragment {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus) {
-                    //Util9.hideKeyboard(getActivity());
+                    Util9.hideKeyboard(getActivity());
                 }
             }
         });
@@ -159,12 +160,12 @@ public class ChatFragment extends Fragment {
         } else
         if (!"".equals(roomID) && roomID!=null) { // existing room (multi user)
             setChatRoom(roomID);
-        };
+        }
 
         if (roomID==null) {                                                     // new room for two user
             getUserInfoFromServer(myUid);
             getUserInfoFromServer(toUid);
-        };
+        }
 
         return view;
     }
@@ -641,9 +642,9 @@ public class ChatFragment extends Fragment {
                     }
                 }
                 public void download() {
-                    /*if (!Util9.isPermissionGranted(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    if (!Util9.isPermissionGranted(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                         return ;
-                    }*/
+                    }
                     showProgressDialog("Downloading File.");
 
                     final File localFile = new File(rootPath, filename);

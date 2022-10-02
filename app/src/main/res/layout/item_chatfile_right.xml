@@ -17,7 +17,7 @@
             android:layout_width="100dp"
             android:layout_height="1dp"
             android:layout_weight="1"
-            android:background="@color/main_color"
+            android:background="@android:color/darker_gray"
             android:visibility="visible">
         </View>
         <TextView
@@ -31,7 +31,7 @@
             android:layout_width="100dp"
             android:layout_height="1dp"
             android:layout_weight="1"
-            android:background="@color/main_color"
+            android:background="@android:color/darker_gray"
             android:visibility="visible">
         </View>
     </LinearLayout>
