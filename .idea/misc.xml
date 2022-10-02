@@ -4,6 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/17905/AndroidStudioProjects/Guardience2/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/drawable/ic_chat_bubble_left.xml" value="0.1875" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/drawable/ic_chat_bubble_line.xml" value="0.191" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/drawable/rect.xml" value="0.1" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/layout/fragment_chat.xml" value="0.2" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/layout/item_chatfile_left.xml" value="0.264" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/layout/item_chatfile_right.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/layout/item_chatimage_left.xml" value="0.2484375" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/layout/item_chatmsg_left.xml" value="0.2484375" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/layout/item_chatmsg_right.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/17905/cap2022/myguardience/app/src/main/res/layout/item_user.xml" value="0.264" />
       </map>
     </option>
   </component>

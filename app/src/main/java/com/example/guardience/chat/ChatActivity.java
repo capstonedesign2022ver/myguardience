@@ -1,4 +1,4 @@
 package com.example.guardience.chat;
 
-public class Chat {
+public class ChatActivity {
 }
