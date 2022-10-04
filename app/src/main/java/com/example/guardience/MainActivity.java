@@ -17,6 +17,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity
     private GoogleMap mMap;
     private Marker currentMarker = null;
 
-    private static final String TAG = "googlemap_example";
+    private static final String TAG = "googlemap";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int UPDATE_INTERVAL_MS = 1000; // 1초
     private static final int FASTEST_UPDATE_INTERVAL_MS = 500; // 0.5초
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity
     private Location location;
 
     private View mLayout; // snackbar를 사용하기 위해서는 view가 필요하다.
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,24 @@ public class MainActivity extends AppCompatActivity
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        NavigationBarView navigationBarView = findViewById(R.id.bottom_navigationView);
+        navigationBarView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.report:
+                        Log.d("탭바 !", "신고하기");
+                        break;
+                    case R.id.chat:
+                        Log.d("탭바 !", "채팅방");
+                        break;
+                    case R.id.witness:
+                        Log.d("탭바 !", "목격자탐색");
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -345,7 +367,8 @@ public class MainActivity extends AppCompatActivity
                                            @NonNull String[] permissions,
                                            @NonNull int[] grandResults) {
 
-        if ( permsRequestCode == PERMISSIONS_REQUEST_CODE && grandResults.length == REQUIRED_PERMISSIONS.length) {
+        super.onRequestPermissionsResult(permsRequestCode, permissions, grandResults);
+        if (permsRequestCode == PERMISSIONS_REQUEST_CODE && grandResults.length == REQUIRED_PERMISSIONS.length) {
 
             // 요청 코드가 PERMISSIONS_REQUEST_CODE 이고, 요청한 퍼미션 개수만큼 수신되었다면
 
@@ -362,12 +385,11 @@ public class MainActivity extends AppCompatActivity
             }
 
 
-            if ( check_result ) {
+            if (check_result) {
 
                 // 퍼미션을 허용했다면 위치 업데이트를 시작합니다.
                 startLocationUpdates();
-            }
-            else {
+            } else {
                 // 거부한 퍼미션이 있다면 앱을 사용할 수 없는 이유를 설명해주고 앱을 종료합니다.2 가지 경우가 있습니다.
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])
@@ -385,7 +407,7 @@ public class MainActivity extends AppCompatActivity
                         }
                     }).show();
 
-                }else {
+                } else {
 
 
                     // "다시 묻지 않음"을 사용자가 체크하고 거부를 선택한 경우에는 설정(앱 정보)에서 퍼미션을 허용해야 앱을 사용할 수 있습니다.
