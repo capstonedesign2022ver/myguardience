@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "105683237845",
+    "project_id": "myguardience",
+    "storage_bucket": "myguardience.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105683237845:android:4382e2be7cdb518bef9b5c",
+        "android_client_info": {
+          "package_name": "com.example.guardience"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105683237845-un4rdhfeb0ongh0rualjocofcju9fpd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWIGKs9--gjckXsePewuOxmWQ5AKoA1gE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105683237845-un4rdhfeb0ongh0rualjocofcju9fpd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
