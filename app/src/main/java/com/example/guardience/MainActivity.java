@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.report:
-                        Log.d("탭바 !", "신고하기");
+                    case R.id.map:
+                        Log.d("탭바 !", "지도");
                         break;
                     case R.id.chat:
                         Log.d("탭바 !", "채팅방");
