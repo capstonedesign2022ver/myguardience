@@ -17,6 +17,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -73,6 +74,8 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +119,42 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    // 액션바에 있는 신고버튼
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.report:
+                Log.d(TAG, "신고하기");
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("목격자를 확보하시겠습니까?");
+                builder.setMessage("현재 위치 : " + currentMarker.getTitle());
+                builder.setPositiveButton("확보하기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 신고하기 눌렀을 때 목격자 명단 페이지로 넘어가기
+                        Log.d(TAG, "신고하기 완료. 목격자 확보");
+                    }
+                });
+                builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 취소 누르면 아무 동작 안일어남.
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         Log.d(TAG, "onMapReady :");
@@ -153,10 +192,36 @@ public class MainActivity extends AppCompatActivity
         }
 
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
+
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
                 Log.d(TAG, "onMapClick :");
+            }
+        });
+
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("목격자를 확보하시겠습니까?");
+                builder.setMessage("현재 위치 : " + currentMarker.getTitle());
+                builder.setPositiveButton("확보하기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 신고하기 눌렀을 때 목격자 명단 페이지로 넘어가기
+                        Log.d(TAG, "신고하기 완료. 목격자 확보");
+                    }
+                });
+                builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 취소 누르면 아무 동작 안일어남.
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
             }
         });
     }
@@ -475,5 +540,6 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+
 
 }
