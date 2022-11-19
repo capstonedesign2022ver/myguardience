@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity
                         break;
                     case R.id.chat:
                         Log.d("탭바 !", "채팅방");
+                        //startActivity();
                         break;
                     case R.id.witness:
                         Log.d("탭바 !", "목격자탐색");
